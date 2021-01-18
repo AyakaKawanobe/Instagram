@@ -15,8 +15,14 @@ class PostViewController: UIViewController {
     var image : UIImage!
 
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var textField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //受け取った画像をimageViewにセットする
+        imageView.image = image
+    }
     
     //投稿ボタンをタップした時に呼ばれるメソッド
     @IBAction func handlePostButton(_ sender: Any) {
@@ -72,14 +78,4 @@ class PostViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //受け取った画像をimageViewにセットする
-        imageView.image = image
-        }
-    
-
-
 }

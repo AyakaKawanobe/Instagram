@@ -17,11 +17,7 @@ class PostData: NSObject {
     //いいねを押したユーザーのidを格納
     var likes: [String] = []
     var isLiked: Bool = false
-    
     var comment: [String] = []
-    //コメントしたユーザーの名前を格納
-    //var commentUser: [String] = []
-    //var comment: [String: String] = ["commentUser": "", "comment": "" ]
     
     //FireStoreからデータ取得
     init(document: QueryDocumentSnapshot){

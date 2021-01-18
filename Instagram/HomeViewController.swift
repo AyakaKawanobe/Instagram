@@ -83,7 +83,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.setPostData(postArray[indexPath.row])
         
         //セル内のボタンのアクションをソースコードで設定する
+        //いいねボタン
         cell.likeButton.addTarget(self, action: #selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        //コメントボタン
         cell.commentButton.addTarget(self, action: #selector(handleCommentButton(_:forEvent:)), for: .touchUpInside)
         
         return cell
@@ -129,16 +131,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         
-        self.performSegue(withIdentifier: "commentSegue", sender: (postData.caption, postData.id))
+        self.performSegue(withIdentifier: "commentSegue", sender: (postData.caption, postData.name, postData.id))
     }
     
-    //コメントした投稿のID,キャプションをコメント画面に渡す
+    //コメントする投稿のキャプション,投稿者,投稿IDをコメント画面に渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "commentSegue",
-            let data: (caption: String, id: String) = sender as? (String, String),
+            let data: (caption: String, name: String, id: String) = sender as? (String, String, String),
             let commentViewController = segue.destination as? CommentViewController{
             if sender != nil{
                 commentViewController.caption = data.caption
+                commentViewController.name = data.name
                 commentViewController.id = data.id
             }
         }

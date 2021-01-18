@@ -142,7 +142,7 @@
                     <connections>
                         <outlet property="captionLabel" destination="dCY-aI-9dE" id="ZKo-4p-AQu"/>
                         <outlet property="commentButton" destination="Get-As-WgB" id="zB8-No-MiC"/>
-                        <outlet property="commentView" destination="iuI-3n-w8o" id="fC6-Zh-5Du"/>
+                        <outlet property="commentTextField" destination="iuI-3n-w8o" id="djs-ag-LtV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5g-pB-5kB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

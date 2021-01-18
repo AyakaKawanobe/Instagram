@@ -68,5 +68,4 @@ class SettingViewController: UIViewController {
             displayTextField.text = user.displayName
         }
     }
-    
 }

@@ -28,7 +28,7 @@
                             <constraint firstAttribute="height" constant="40" id="X4B-ZK-l6B"/>
                             <constraint firstAttribute="width" constant="40" id="XeA-ZJ-ndT"/>
                         </constraints>
-                        <state key="normal" title="Button" backgroundImage="like_none"/>
+                        <state key="normal" backgroundImage="like_none"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUN-ma-bD6">
                         <rect key="frame" x="76" y="328.5" width="40" height="21"/>
@@ -52,14 +52,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rb0-Bh-DUc">
-                        <rect key="frame" x="116" y="319.5" width="40" height="39.5"/>
+                        <rect key="frame" x="116" y="321.5" width="35" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="isv-OQ-HcH"/>
-                            <constraint firstAttribute="width" constant="40" id="tfH-4E-J3A"/>
+                            <constraint firstAttribute="height" constant="35" id="isv-OQ-HcH"/>
+                            <constraint firstAttribute="width" constant="35" id="tfH-4E-J3A"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" title="コメント" backgroundImage="message" catalog="system"/>
+                        <state key="normal" backgroundImage="comment"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtJ-C8-hDA">
                         <rect key="frame" x="26" y="575" width="268" height="0.0"/>
@@ -104,7 +104,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="comment" width="611" height="585"/>
         <image name="like_none" width="40" height="40"/>
-        <image name="message" catalog="system" width="128" height="113"/>
     </resources>
 </document>

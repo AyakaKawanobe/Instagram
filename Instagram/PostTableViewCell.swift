@@ -45,12 +45,8 @@ class PostTableViewCell: UITableViewCell {
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         
         //コメントの表示
-        
-//        for (user, comment) in postData.comment{
-//            self.commentLabel.text = "\(user): \(comment)"
-//        }
-        
         var allComments = ""
+        self.commentLabel.text = ""
         
         if postData.comment != []{
             for i in 0..<postData.comment.count{
@@ -80,6 +76,6 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        
     }
-    
 }

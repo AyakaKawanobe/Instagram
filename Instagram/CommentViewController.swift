@@ -14,7 +14,9 @@ class CommentViewController: UIViewController {
 
     var id : String!
     var caption: String = ""
-    @IBOutlet weak var commentView: UITextField!
+    var name: String = ""
+    
+    @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     
@@ -22,25 +24,23 @@ class CommentViewController: UIViewController {
         super.viewDidLoad()
         
         //キャプションをセット
-        captionLabel.text = caption
+        captionLabel.text = "\(name): \(caption)"
         
+        //コメント入力がない限り投稿ボタンは非活性
         commentButton.isEnabled = false
         
         // ツールバー生成 サイズはsizeToFitメソッドで自動で調整される。
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-
-        //サイズの自動調整。敢えて手動で実装したい場合はCGRectに記述してsizeToFitは呼び出さない。
+        //サイズの自動調整
         toolBar.sizeToFit()
-
-        // 左側のBarButtonItemはflexibleSpace。これがないと右に寄らない。
+        // ボタンを右側に寄せる余白
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-        // Doneボタン
-        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(commitButtonTapped))
-
+        // 完了ボタン
+        let commitButton = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(commitButtonTapped))
         // BarButtonItemの配置
         toolBar.items = [spacer, commitButton]
         // textViewのキーボードにツールバーを設定
-        commentView.inputAccessoryView = toolBar
+        commentTextField.inputAccessoryView = toolBar
         
     }
     
@@ -52,12 +52,12 @@ class CommentViewController: UIViewController {
     //コメント投稿ボタンの処理
     @IBAction func handleCommentText(_ sender: Any) {
         //空文字の場合はcommentButtonを非活性に
-        if commentView.text == "" {
+        if commentTextField.text == "" {
             commentButton.isEnabled = false
             return
         }
         
-        //nilでないかつ0文字以上はtourokuButtonを活性に
+        //コメントが入力されていたらcommentButtonを活性化
         commentButton.isEnabled = true
     }
     
@@ -73,7 +73,7 @@ class CommentViewController: UIViewController {
         let name = Auth.auth().currentUser?.displayName
         
         var updateComment: FieldValue
-        let commentText = "\(name!): \(commentView.text!)"
+        let commentText = "\(name!): \(commentTextField.text!)"
         updateComment = FieldValue.arrayUnion([commentText])
         
         let postDic = [
